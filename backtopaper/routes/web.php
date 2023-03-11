@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\RandomController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use Nette\Utils\Random;
+use Symfony\Component\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/random',[RandomController::class, 'generateText'])
+->name('random.index');
+
