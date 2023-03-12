@@ -4,30 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Gender;
-
+use App\Models\Color;
+use App\Models\Characther;
 
 class RandomController extends Controller
 {
-    public $characters = [
-        'color' => ['blue','pink', 'green', 'purple', 'red']
-    ];
+    private $text;
 
-   
+    function generateText(Request $request){
+        $genders = Gender::all();
+        $numOfGenders = Gender::count();
+        $randGenderNum = rand(1, $numOfGenders-1);
 
- 
+        $colors = Color::all();
+        $numOfColors = Color::count();
+        $randColorNum = rand(1, $numOfColors-1);
 
-    function generateText(){
+        $gender = $genders[$randGenderNum]['gender'];
+        $color = $colors[$randColorNum]['color'];
 
-        $genders      = Gender::all();
-        $numOfGenders =  count($genders);
+        if ($request->input('clicked')) {
+        
+            $this->text = "...a ".$gender." and your favourite color will be ".$color;
 
-        $color_id = rand(0, (count($this->characters['color'])-1));
-
-        $gender = $genders[rand(1, $numOfGenders-1)]['gender'];
-        $color = $this->characters['color'][$color_id];
-
-        $text = "You will be a ".$gender." and your favourite color will be ".$color;
-
-        return view('random.index', ['text'=>$text]);
+            $character = new Characther();
+            $character->user_id = 1;
+            $character->gender = $randGenderNum;
+            $character->color = $randColorNum;
+            $character->save();
+        }
+        return view('random.index', ['text'=>$this->text]);
     }
 }

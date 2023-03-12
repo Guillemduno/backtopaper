@@ -5,6 +5,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Nette\Utils\Random;
 use Symfony\Component\Routing\Router;
+use App\Http\Controllers\CharactherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/', function () {
 Route::get('/random',[RandomController::class, 'generateText'])
 ->name('random.index');
 
+Route::get('/characthers', [CharactherController::class, 'index'])
+->name('characther.index');

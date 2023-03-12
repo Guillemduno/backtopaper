@@ -4,18 +4,18 @@
 
 @section('content')
     <div>
-        <h1>Your charachter: </h1>
-        
         @if (@isset($text))
-        <p>{{$text}}</p>
+            <p>Your charachter is...</p>
+            <p>{{$text}}</p>
         @else
-        <p>Text not set yet</p> 
+            <p>Press the button to generate a characther!</p> 
         @endif
     </div>
 
     <form action="{{route('random.index')}}" method="get">
         @csrf
-        <button type="submit">Create</button>
+        <input type="hidden" name="clicked" value="true">
+        <button type="submit" value="clicked">Generate a characther</button>
     </form>
 @endsection
     
