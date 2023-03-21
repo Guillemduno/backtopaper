@@ -4,11 +4,9 @@
 
 @section('content')
 <ul>
-    @foreach ($characther as $item) 
-    <li> {{$item['user_id']}} - 
-        {{$item['gender']}}</li> 
+    @foreach ($characthers as $characther) 
+    <li>a {{$characther->gender->gender}} and the color is {{$characther->color->color}} <li> 
     @endforeach
 </ul>
-
 @endsection
     

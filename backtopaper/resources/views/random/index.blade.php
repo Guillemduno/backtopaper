@@ -8,7 +8,7 @@
             <p>Your charachter is...</p>
             <p>{{$text}}</p>
         @else
-            <p>Press the button to generate a characther!</p> 
+            <p>Press the button to generate a random characther!</p> 
         @endif
     </div>
 

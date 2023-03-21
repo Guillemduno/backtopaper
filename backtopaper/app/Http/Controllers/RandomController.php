@@ -12,25 +12,23 @@ class RandomController extends Controller
     private $text;
 
     function generateText(Request $request){
-        $genders = Gender::all();
+        
         $numOfGenders = Gender::count();
-        $randGenderNum = rand(1, $numOfGenders-1);
+        $randGenderNum = rand(1, $numOfGenders);
 
-        $colors = Color::all();
         $numOfColors = Color::count();
-        $randColorNum = rand(1, $numOfColors-1);
+        $randColorNum = rand(1, $numOfColors);
 
-        $gender = $genders[$randGenderNum]['gender'];
-        $color = $colors[$randColorNum]['color'];
-
+        $gender = Gender::find($randGenderNum)->gender;
+        $color = Color::find($randColorNum)->color;
         if ($request->input('clicked')) {
         
             $this->text = "...a ".$gender." and your favourite color will be ".$color;
 
             $character = new Characther();
             $character->user_id = 1;
-            $character->gender = $randGenderNum;
-            $character->color = $randColorNum;
+            $character->gender_id = $randGenderNum;
+            $character->color_id = $randColorNum;
             $character->save();
         }
         return view('random.index', ['text'=>$this->text]);

@@ -14,8 +14,8 @@ class CharactherController extends Controller
      */
     public function index()
     {
-        $character = Characther::all();
-        return view('characther.index', ['characther'=>$character]);
+        $characters = Characther::all();
+        return view('characther.index', ['characthers'=>$characters]);
     }
 
     /**
