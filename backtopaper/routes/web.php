@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Nette\Utils\Random;
 use Symfony\Component\Routing\Router;
 use App\Http\Controllers\CharactherController;
+use App\Models\Characther;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,6 @@ Route::get('/random',[RandomController::class, 'generateText'])
 
 Route::get('/characthers', [CharactherController::class, 'index'])
 ->name('characther.index');
+
+Route::get('/characther/edit/{id}', [CharactherController::class, 'edit'])
+->name('characther.edit');

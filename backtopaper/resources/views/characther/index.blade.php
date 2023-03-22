@@ -4,9 +4,12 @@
 
 @section('content')
 <ul>
-    @foreach ($characthers as $characther) 
-    <li>a {{$characther->gender->gender}} and the color is {{$characther->color->color}} <li> 
-    @endforeach
+    @foreach ($characthers as $key => $characther) 
+    <li>
+        <a href="{{route('characther.edit', ['id'=>$characther->id])}}">
+        {{$key+1}} {{$characther->id}} {{$characther->gender->gender}} - {{$characther->color->color}} <li> 
+        </a>
+            @endforeach
 </ul>
 @endsection
     

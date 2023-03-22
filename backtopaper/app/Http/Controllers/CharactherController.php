@@ -58,7 +58,8 @@ class CharactherController extends Controller
      */
     public function edit($id)
     {
-        //
+        $characther = Characther::findOrFail($id);
+        return view('characther.edit', ['characther' => $characther]);
     }
 
     /**
