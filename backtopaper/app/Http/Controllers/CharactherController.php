@@ -36,7 +36,12 @@ class CharactherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $characther = Characther::findOrFail($request->id);
+
+        $characther->description = $request->description;
+        $characther->save();
+
+        return redirect('/characthers');
     }
 
     /**

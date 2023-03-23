@@ -31,3 +31,6 @@ Route::get('/characthers', [CharactherController::class, 'index'])
 
 Route::get('/characther/edit/{id}', [CharactherController::class, 'edit'])
 ->name('characther.edit');
+
+Route::post('/characther/store/{id}', [CharactherController::class, 'store'])
+->name('characther.store');
