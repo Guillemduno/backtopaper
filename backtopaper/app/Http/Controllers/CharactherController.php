@@ -36,6 +36,13 @@ class CharactherController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate(
+            [
+                'imageFile' => 'required',
+                'description' => 'required|max:10'
+            ]
+        );
+
         $characther = Characther::findOrFail($request->id);
 
         $characther->description = $request->description;
