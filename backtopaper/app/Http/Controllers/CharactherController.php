@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Characther;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CharactherController extends Controller
 {
@@ -36,17 +37,24 @@ class CharactherController extends Controller
      */
     public function store(Request $request)
     {
+
+        Storage::disk('local')->put('image.png', $request->imageFile);
+
         $validatedData = $request->validate(
             [
                 'imageFile' => 'required',
-                'description' => 'required|max:10'
+                'description' => 'required|max:255'
             ]
         );
 
         $characther = Characther::findOrFail($request->id);
 
         $characther->description = $request->description;
+        $characther->imageFile = $request->imageFile;
         $characther->save();
+
+        
+        
 
         return redirect('/characthers');
     }
