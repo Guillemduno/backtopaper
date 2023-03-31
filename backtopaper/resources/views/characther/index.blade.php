@@ -6,7 +6,7 @@
 <ul>
     @foreach ($characthers as $key => $characther) 
     <li>
-        <a href="{{route('characther.edit', ['id'=>$characther->id])}}">
+        <a href="{{route('characther.show', ['id'=>$characther->id])}}">
         {{$key+1}} {{$characther->id}} {{$characther->gender->gender}} - {{$characther->color->color}} <li> 
         </a>
             @endforeach

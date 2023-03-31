@@ -32,5 +32,9 @@ Route::get('/characthers', [CharactherController::class, 'index'])
 Route::get('/characther/edit/{id}', [CharactherController::class, 'edit'])
 ->name('characther.edit');
 
+Route::get('/characther/show/{id}', [CharactherController::class, 'show'])
+->name('characther.show');
+
+
 Route::post('/characther/store/{id}', [CharactherController::class, 'store'])
 ->name('characther.store');

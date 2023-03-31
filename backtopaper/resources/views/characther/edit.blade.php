@@ -4,14 +4,16 @@
 
 @section('content')
 
-    <p>{{$characther->id}} {{$characther->gender->gender}} {{$characther->color->color}}</p> 
-<img src="{{Storage::get('image.png')}}" alt="face" srcset="">
-    <form action="{{route('characther.store', ['id'=>$characther->id])}}" method="post">
+    <p>{{$characther->id}} {{$characther->gender->gender}} {{$characther->color->color}}</p>
+    
+    <img src="/storage/{{$characther->imageFile}}" alt="{{$characther->description}}" srcset="">
+
+    <form action="{{route('characther.store', ['id'=>$characther->id])}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('post')
         <div>
             <label for="imageFile">Upload an image:</label>
-            <input type="file" name="imageFile" id="imageFile" value="{{old('imageFile', $characther->imageFile)}}">
+            <input type="file" name="imageFile" id="imageFile">
         </div>
         <div>
             <label for="description">Description</label>

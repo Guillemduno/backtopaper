@@ -37,9 +37,6 @@ class CharactherController extends Controller
      */
     public function store(Request $request)
     {
-
-        Storage::disk('local')->put('image.png', $request->imageFile);
-
         $validatedData = $request->validate(
             [
                 'imageFile' => 'required',
@@ -49,14 +46,16 @@ class CharactherController extends Controller
 
         $characther = Characther::findOrFail($request->id);
 
+        if ($request->hasFile('imageFile')) {
+            $file = $request->file('imageFile');
+            $path =  $file->storeAs('images', $characther->id.".".$file->extension());
+        }
+
         $characther->description = $request->description;
-        $characther->imageFile = $request->imageFile;
+        $characther->imageFile = $path;
         $characther->save();
 
-        
-        
-
-        return redirect('/characthers');
+        return redirect('/characther/show/'.$characther->id);
     }
 
     /**
@@ -67,7 +66,8 @@ class CharactherController extends Controller
      */
     public function show($id)
     {
-        //
+        $character = Characther::findOrFail($id);
+        return view('characther.show', ['characther'=>$character]);
     }
 
     /**
