@@ -1,21 +1,24 @@
 @extends('layouts.layout')
 
-@yield('title', 'Random Characther')
+
 
 @section('content')
-    <div>
+
+    <h1>@yield('title', 'Random Character')</h1>
+
+    <div class="randomResult">
         @if (@isset($text))
-            <p>Your charachter is...</p>
-            <p>{{$text}}</p>
+            <p>Your charachter will be...</p>
+            <p class="randomText">{{$text}}</p>
         @else
-            <p>Press the button to generate a random characther!</p> 
+            <p>Press the button to generate a random character!</p> 
         @endif
     </div>
 
     <form action="{{route('random.index')}}" method="get">
         @csrf
         <input type="hidden" name="clicked" value="true">
-        <button class="btn" type="submit" value="clicked">Generate a characther</button>
+        <button class="btn" type="submit" value="clicked">Generate a character</button>
     </form>
 @endsection
     

@@ -1,10 +1,8 @@
 @extends('layouts.layout')
 
-@yield('title', 'List of Characthers')
-
-    @section('content')
-    <div class="wrap-content">
-    <ul>
+@section('content')
+    <h1>@yield('title', 'List of Characters')</h1>
+    <ul class="margin-air">
         @foreach ($characthers as $key => $characther) 
         <li>
             <form action="{{route('characther.show', ['id'=>$characther->id])}}" method="GET">
@@ -13,7 +11,6 @@
         <li> 
         @endforeach
     </ul>
-</div>
-    @endsection
+@endsection
 
     

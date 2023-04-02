@@ -10,16 +10,22 @@
 <body>
     <div class="container">
         <header>
-            <ul>
+            <ul class="d-flex">
                 <li>
-                    <a href="{{route('random.index')}}">Random</a>
+                    <form action="{{route('random.index')}}" method="get">
+                        <button type="submit">Random</button>
+                    </form>
                 </li>
                 <li>
-                    <a href="{{route('characther.index')}}">Characthers</a>
+                    <form action="{{route('characther.index')}}" method="get">
+                        <button type="submit">Characters</button>
+                    </form>
                 </li>
             </ul>
         </header>
+        <div class="wrap-content">
         @yield('content')
+        </div>
     </div>
 </body>
 </html>

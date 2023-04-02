@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
-@yield('title', 'Show Characther')
-
 @section('content')
+
+    <h1>@yield('title', 'Show Character')</h1>
 
     <p>{{$characther->id}} {{$characther->gender->gender}} {{$characther->color->color}}</p>
     
@@ -10,9 +10,7 @@
 
    <p>{{$characther->description}}</p>
 
-   {{-- <a href="{{route('characther.edit', ['id' => $characther->id])}}">Edit</a> --}}
-
-   <form action="{{route('characther.edit', ['id' => $characther->id])}}" method="get">
+   <form class="margin-air" action="{{route('characther.edit', ['id' => $characther->id])}}" method="get">
     <button class="btn" type="submit">Edit</button>
     </form>
 @endsection
