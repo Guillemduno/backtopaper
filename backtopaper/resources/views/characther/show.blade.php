@@ -10,5 +10,9 @@
 
    <p>{{$characther->description}}</p>
 
-   <a href="{{route('characther.edit', ['id' => $characther->id])}}">Edit</a>
+   {{-- <a href="{{route('characther.edit', ['id' => $characther->id])}}">Edit</a> --}}
+
+   <form action="{{route('characther.edit', ['id' => $characther->id])}}" method="get">
+    <button class="btn" type="submit">Edit</button>
+    </form>
 @endsection

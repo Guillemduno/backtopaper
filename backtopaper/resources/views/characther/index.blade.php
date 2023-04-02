@@ -2,14 +2,18 @@
 
 @yield('title', 'List of Characthers')
 
-@section('content')
-<ul>
-    @foreach ($characthers as $key => $characther) 
-    <li>
-        <a href="{{route('characther.show', ['id'=>$characther->id])}}">
-        {{$key+1}} {{$characther->id}} {{$characther->gender->gender}} - {{$characther->color->color}} <li> 
-        </a>
-            @endforeach
-</ul>
-@endsection
+    @section('content')
+    <div class="wrap-content">
+    <ul>
+        @foreach ($characthers as $key => $characther) 
+        <li>
+            <form action="{{route('characther.show', ['id'=>$characther->id])}}" method="GET">
+                <button class="btn" type="submit"> {{$key+1}} {{$characther->gender->gender}} - {{$characther->color->color}}</button>
+            </form>
+        <li> 
+        @endforeach
+    </ul>
+</div>
+    @endsection
+
     

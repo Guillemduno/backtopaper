@@ -8,16 +8,18 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <header>
-        <ul>
-            <li>
-                <a href="{{route('random.index')}}">Random</a>
-            </li>
-            <li>
-                <a href="{{route('characther.index')}}">Characthers</a>
-            </li>
-        </ul>
-    </header>
-    @yield('content')
+    <div class="container">
+        <header>
+            <ul>
+                <li>
+                    <a href="{{route('random.index')}}">Random</a>
+                </li>
+                <li>
+                    <a href="{{route('characther.index')}}">Characthers</a>
+                </li>
+            </ul>
+        </header>
+        @yield('content')
+    </div>
 </body>
 </html>

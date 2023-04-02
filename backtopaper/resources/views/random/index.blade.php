@@ -15,7 +15,7 @@
     <form action="{{route('random.index')}}" method="get">
         @csrf
         <input type="hidden" name="clicked" value="true">
-        <button type="submit" value="clicked">Generate a characther</button>
+        <button class="btn" type="submit" value="clicked">Generate a characther</button>
     </form>
 @endsection
     
