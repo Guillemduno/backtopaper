@@ -4,6 +4,7 @@
     --main-text: #999999;
     --primary-color: #009999;
     --primary-color-darker:#009990;
+    --danger: #FF8585;
 }
 
 *{
@@ -81,6 +82,10 @@ textarea{
 
 img{
     width:100%;
+}
+
+.danger{
+    color: var(--danger);
 }
 
 /********MEDIA QUERIES*********************/

@@ -22,13 +22,15 @@
             <div class="margin-air">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li class="danger">{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
         @endif
-
         <button class="margin-air" type="submit">Save</button>
     </form>
-
+    <form class="margin-air" action="{{route('characther.show', ['id'=> $characther->id])}}" method="get">
+        @csrf
+        <button type="submit">Back</button>
+    </form>
 @endsection

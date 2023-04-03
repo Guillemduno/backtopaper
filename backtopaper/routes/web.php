@@ -38,3 +38,6 @@ Route::get('/characther/show/{id}', [CharactherController::class, 'show'])
 
 Route::post('/characther/store/{id}', [CharactherController::class, 'store'])
 ->name('characther.store');
+
+Route::post('/characther/destroy/{id}', [CharactherController::class, 'destroy'])
+->name('characther.destroy');
