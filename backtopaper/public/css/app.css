@@ -88,6 +88,23 @@ img{
     color: var(--danger);
 }
 
+.nav-down-wrap{
+    /* border: 1px solid var(--danger); */
+    position:sticky;
+    bottom:0;
+    background-color: var(--primary-color);
+}
+
+.nav-down-wrap ul{ 
+    justify-content:space-around;
+    /* border:1px solid var(--danger); */
+}
+.nav-down-wrap ul li{
+    /* border:1px solid blue; */
+
+    align-items:center;
+}
+
 /********MEDIA QUERIES*********************/
 @media only screen and (min-width: 600px) {
 

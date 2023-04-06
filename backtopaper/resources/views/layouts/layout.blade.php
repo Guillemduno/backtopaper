@@ -10,22 +10,35 @@
 <body>
     <div class="container">
         <header>
-            <ul class="d-flex">
-                <li>
-                    <form action="{{route('random.index')}}" method="get">
-                        <button type="submit">Random</button>
-                    </form>
-                </li>
-                <li>
-                    <form action="{{route('characther.index')}}" method="get">
-                        <button type="submit">Characters</button>
-                    </form>
-                </li>
-            </ul>
+            
         </header>
         <div class="wrap-content">
         @yield('content')
         </div>
+        <nav class="nav-down-wrap">
+            <ul class="d-flex">
+                <li>
+                    <form action="{{route('random.index')}}" method="get">
+                        <input type="image" src="{{asset('storage/images/home.png')}}" alt="submit">
+                    </form>
+                </li>
+                <li>
+                    <form action="{{route('random.index')}}" method="get">
+                        <input type="image" src="{{asset('storage/images/search.png')}}" alt="submit">
+                    </form>
+                </li>
+                <li>
+                    <form action="{{route('characther.index')}}" method="get">
+                        <input type="image" src="{{asset('storage/images/list.png')}}" alt="submit">
+                    </form>
+                </li>
+                <li>
+                    <form action="{{route('random.index')}}" method="get">
+                        <input type="image" src="{{asset('storage/images/person.png')}}" alt="submit">
+                    </form>
+                </li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>
