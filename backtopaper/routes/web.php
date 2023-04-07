@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Nette\Utils\Random;
 use Symfony\Component\Routing\Router;
 use App\Http\Controllers\CharactherController;
-use App\Models\Characther;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FeedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,9 @@ Route::post('/characther/store/{id}', [CharactherController::class, 'store'])
 
 Route::post('/characther/destroy/{id}', [CharactherController::class, 'destroy'])
 ->name('characther.destroy');
+
+Route::get('/user', [UserController::class,'index'])
+->name('user.index');
+
+Route::get('/feed', [FeedController::class, 'index'])
+->name('feed.index');

@@ -33,7 +33,7 @@ body{
 
 .d-flex{
     display:flex;
-    gap: 1rem;
+    align-items:center;
 }
 .d-flex-column{
     display:flex;
@@ -88,27 +88,29 @@ img{
     color: var(--danger);
 }
 
-.nav-down-wrap{
-    /* border: 1px solid var(--danger); */
-    position:sticky;
+.nav-down{
+    border-top: 1px solid var(--main-text);
+    position:fixed;
     bottom:0;
+    width:100%;
     background-color: var(--primary-color);
 }
 
-.nav-down-wrap ul{ 
+.nav-down-wrap{ 
+    display:flex;
     justify-content:space-around;
-    /* border:1px solid var(--danger); */
-}
-.nav-down-wrap ul li{
-    /* border:1px solid blue; */
-
     align-items:center;
 }
+
 
 /********MEDIA QUERIES*********************/
 @media only screen and (min-width: 600px) {
 
     .container{
+        width:30%;
+    }
+
+    .nav-down{
         width:30%;
     }
  
