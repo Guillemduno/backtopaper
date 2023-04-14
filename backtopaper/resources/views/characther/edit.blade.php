@@ -9,6 +9,10 @@
     <form  action="{{route('characther.store', ['id'=>$characther->id])}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('post')
+        <div>
+            <label for="showInFeed">Show in Feed:</label>
+            <input type="checkbox" name="showInFeed" id="showInFeed" {{ $characther->showInFeed == 'on' ? 'checked' : '' }}/>
+        </div>
         <div class="margin-air">
             <label for="imageFile">Upload an image:</label>
             <input type="file" name="imageFile" id="imageFile">

@@ -39,7 +39,6 @@ class CharactherController extends Controller
     {
         $validatedData = $request->validate(
             [
-                'imageFile' => 'required',
                 'description' => 'required|max:255'
             ]
         );
@@ -49,10 +48,11 @@ class CharactherController extends Controller
         if ($request->hasFile('imageFile')) {
             $file = $request->file('imageFile');
             $path =  $file->storeAs('images', $characther->id.".".$file->extension());
+            $characther->imageFile = $path;
         }
 
-        $characther->description = $request->description;
-        $characther->imageFile = $path;
+        $characther->showInFeed     = $request->showInFeed;
+        $characther->description    = $request->description;
         $characther->save();
 
         return redirect('/characther/show/'.$characther->id);
